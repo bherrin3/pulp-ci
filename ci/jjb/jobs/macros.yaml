@@ -68,6 +68,18 @@
               fi
             fi
 
+- builder:
+    name: check-fips-enabled
+    # Checking if FIPs is enabled.
+    # If true, install yum-plugin-priorities to enable the priorities
+    # set in the pulp.repo file set by main.yaml
+    # See #4357 for more information.
+    builders:
+        - shell: |
+            if [ /proc/sys/crypto/fips_enabled ]; then
+              echo -e "FIPS enabled. Installing yum-plugin-priorities to resolve pulp.repo conflict.\n"
+              sudo yum install yum-plugin-priorities -y
+            fi
 
 # Inject the PYTHONUNBUFFERED env var into builds using a parameter. This needs to be a string
 # param, not a bool, because any value turns on unbuffered mode, including "false".
