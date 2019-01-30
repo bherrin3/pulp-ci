@@ -213,9 +213,9 @@
     name: pulp-ci-github
     scm:
         - git:
-            url: https://github.com/pulp/pulp-ci.git
+            url: https://github.com/bherrin3/pulp-ci.git
             branches:
-                - '*/master'
+                - '4357-FIPSciFailure'
             skip-tag: true
 
 - wrapper:

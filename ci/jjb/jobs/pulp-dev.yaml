@@ -1,5 +1,5 @@
 - job-template:
-    name: 'pulp-{build_version}-dev-{os}'
+    name: 'bherring-pulp-{build_version}-dev-{os}'
     node: '{os}-os'
     properties:
         - qe-ownership
