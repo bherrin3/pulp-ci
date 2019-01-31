@@ -17,6 +17,6 @@
     sleep: 5
 
 - name: Install yum-plugin-priorities
-  yum:
+  package:
     name: yum-plugin-priorities
-    state: latest
+    state: present
