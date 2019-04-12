@@ -1,0 +1,30 @@
+---
+# Change /var/lib/jenkins to user $HOME
+- name: Update Jenkins Ansible Execution to User Home
+  command: ln -s {{ cloud_home }} /var/lib/jenkins
+
+## Common changes for both RHEL and Fedora
+
+
+
+## Unique declarations for Fedora or RHEL
+# Install all test dependencies (Fedora)
+- name: Install Fedora Image dependencies
+  package:
+    name: 
+      - python
+    state: present
+  when: ansible_distribution == "Fedora"
+
+# Install all test dependencies (Red Hat)
+- name: Install RHEL Image dependencies
+  package:
+    name:
+      - git
+      - attr
+      - libselinux-python
+
+
+    state: present
+  when:
+    - ansible_distribution == "RedHat"

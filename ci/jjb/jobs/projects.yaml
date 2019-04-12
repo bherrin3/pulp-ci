@@ -27,6 +27,20 @@
     jobs:
     - pulp-{build_version}-dev-{os}
 
+# Jobs using pulp-dev.yaml for Pulp 2.17+.
+- project:
+    name: pulp-dev-test
+    build_version:
+    - 2-master:
+        pulp_version: '2.20'
+        reverse_trigger: '2-master'
+    os:
+    - rhel7
+    reverse_trigger: '{build_version}-dev'
+    script-var: ''
+    jobs:
+    - pulp-{build_version}-dev-{os}-test
+
 # Jobs using pulp3-dev.yaml for Pulp 3+.
 - project:
     name: pulp3-dev

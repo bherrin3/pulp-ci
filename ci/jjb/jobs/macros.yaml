@@ -68,6 +68,13 @@
               fi
             fi
 
+- builder:
+    name: update-jenkins-symbolic-link
+    builders:
+        - shell: |
+            # Ensure that /var/lib/jenkins points to the new home dir location
+            # Jenkins ENV Vars set at: https://pulp-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/configure
+            sudo ln -s ${CLOUD_HOME} /var/lib/jenkins
 
 # Inject the PYTHONUNBUFFERED env var into builds using a parameter. This needs to be a string
 # param, not a bool, because any value turns on unbuffered mode, including "false".
