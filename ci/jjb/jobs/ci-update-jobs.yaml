@@ -19,6 +19,7 @@
             mask-password-params: true
     builders:
         - fix-hostname
+        - update-jenkins-symbolic-link
         - shell: |
             set -o nounset
 

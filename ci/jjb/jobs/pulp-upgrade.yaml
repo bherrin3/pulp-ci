@@ -24,6 +24,7 @@
                 PULP_VERSION={pulp_version}
                 UPGRADE_PULP_VERSION={upgrade_pulp_version}
     builders:
+        - update-jenkins-symbolic-link
         - shell: |
             echo "PULP_VERSION=$(cut -d- -f1 <<< ${{PULP_VERSION}})" > pulp_version.properties
             echo "PULP_BUILD=$(cut -d- -f2 <<< ${{PULP_VERSION}})" >> pulp_version.properties

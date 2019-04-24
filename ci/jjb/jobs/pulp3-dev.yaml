@@ -20,6 +20,7 @@
       - timed: "H 2 * * *"
     builders:
         - fix-hostname
+        - update-jenkins-symbolic-link
         - shell:
             !include-raw-escape:
                 - 'ssh-setup.sh'

@@ -22,6 +22,7 @@
             result: 'success'
     builders:
         - fix-hostname
+        - update-jenkins-symbolic-link
         - shell:
             !include-raw-escape:
                 - 'ssh-setup.sh'

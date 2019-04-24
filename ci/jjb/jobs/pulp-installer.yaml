@@ -61,6 +61,7 @@
         - jenkins-ssh-credentials
     builders:
         - fix-hostname
+        - update-jenkins-symbolic-link
         - shell: |
             sudo yum install -y ansible
             export ANSIBLE_HOST_KEY_CHECKING=False

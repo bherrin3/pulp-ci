@@ -23,6 +23,7 @@
         - timestamps
     builders:
         - fix-hostname
+        - update-jenkins-symbolic-link
         - shell: |
             # Useful for debugging
             getent passwd "$(id -u)"
