@@ -76,7 +76,7 @@
 - name: Install Pulp 2 Tests
   pip:
     virtualenv: '{{ ansible_user_dir }}/.virtualenvs/pulp-2-tests'
-    name: git+https://github.com/PulpQE/pulp-2-tests.git#egg=pulp-2-tests
+    name: git+https://github.com/bherrin3/Pulp-2-Tests.git@4143-multiplex-stderr#egg=pulp-2-tests
     state: present
 
 - name: Install pytest

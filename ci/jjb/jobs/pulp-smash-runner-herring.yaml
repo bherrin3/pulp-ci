@@ -58,7 +58,10 @@
         - qe-ownership
         - discard-old-builds
     scm:
-        - pulp-ci-github
+      - git:
+         url: https://github.com/bherrin3/pulp-ci.git
+         branches:
+          - origin/custom-job
     wrappers:
         - ansicolor
         - timeout:
@@ -120,11 +123,11 @@
             fi
             source ~/.virtualenvs/pulp-2-tests/bin/activate
             set +e
-            py.test -v --color=yes --junit-xml=junit-report.xml --pyargs pulp_2_tests.tests.rpm.api_v2
+            py.test -v --color=yes --junit-xml=junit-report.xml --pyargs pulp_2_tests.tests.rpm.api_v2.test_sync_publish
             set -e
             test -f junit-report.xml
     publishers:
         - archive:
             artifacts: 'junit-report.xml'
-        - email-notify-owners
+        # - email-notify-owners
         - delete-slave-node

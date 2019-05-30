@@ -5,7 +5,10 @@
         - qe-ownership
         - discard-old-builds
     scm:
-        - pulp-ci-github
+      - git:
+         url: https://github.com/bherrin3/pulp-ci.git
+         branches:
+          - origin/custom-job
     wrappers:
         - config-file-provider:
             files:
@@ -32,6 +35,7 @@
             !include-raw-escape:
                 - 'pulp-coverage-setup.sh'
                 - 'pulp-smash-parameters.sh'
+                - 'pulp-version-information.sh'
         - inject:
             properties-file: parameters.txt
         - trigger-builds:
@@ -106,5 +110,5 @@
         - archive:
             artifacts: "*.tar.gz"
             allow-empty: true
-        - email-notify-owners
+        # - email-notify-owners
         - delete-slave-node
