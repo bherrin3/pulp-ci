@@ -125,6 +125,8 @@
             co-owners:
                 - brocha
                 - bherring
+                - dkliban
+                - ggainey
 
 # Discard old builds that are month old for the job
 - property:
